@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 """
 Created on Thu Jan 19 01:07:04 2023
-
 @author: PRAMILA
 """
 from __future__ import division
 import streamlit as st
+from pyhdf.SD import SD, SDC
 import numpy as np
 from streamlit_folium import folium_static
 from streamlit_folium import st_folium
@@ -300,11 +300,3 @@ if st.button("Predict"):
     st.error("The loss percentage is:{} ".format(final_loss_per))
     st.balloons()
 
-
-
-           
-           	           
-           
-           
-      
-    
