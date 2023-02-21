@@ -76,7 +76,7 @@ if st.button("Predict"):
     filePath=r"MOD08_D3.A2023048.061.2023051015026.hdf"
     hdf= SD(filePath, SDC.READ)
     #print(hdf.datasets())
-    sds=hdf.select('AOD_550_Dark_Target_Deep_Blue_Combined_Mean_Mean')
+    sds=hdf.select('AOD_550_Dark_Target_Deep_Blue_Combined_Mean')
     data=sds.get()
     #print(hdf.datasets())
     lat = hdf.select('XDim')
