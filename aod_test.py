@@ -298,7 +298,7 @@ if st.button("Predict"):
     #st.info("Electricity Cost per Month: ₹ {}".format(round((solar_irradiance*9*720)/1000,2)))
     final_loss = total_electricity*0.03
     final_loss_per = (final_loss/total_electricity)*100
-    st.error("The loss percentage is:{} ".format(final_loss_per))
+    #st.error("The loss percentage is:{} ".format(final_loss_per))
     st.balloons()
 
 
