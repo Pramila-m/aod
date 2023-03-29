@@ -106,6 +106,9 @@ if st.button("Predict"):
          	AOD500nm=round(data_value*scale_factor,3)
     #st.write(AOD500nm)
     st.success("AOD Value {} ".format(round(AOD500nm,3)))
+	 #PARTICULATE MATTER =>AOD * SLOPE + INTERCEPT
+    PM2_5=AOD500nm*46.7+7.13
+    st.warning("Particulate matter {} ".format(PM2_5))
 
     def Linear(AQIhigh, AQIlow, Conchigh, Conclow, Conc):
 	    a=((Conc-Conclow)/(Conchigh-Conclow))*(AQIhigh-AQIlow)+AQIlow;
@@ -113,8 +116,10 @@ if st.button("Predict"):
 	    return linear;
 
 
-    #conc=AOD500nm
-    c=(math.floor(10*AOD500nm))/10
+    #conc=AOD500nm 
+     #AQI
+	
+    c=(math.floor(10*PM2_5))/10
     if (c>=0 and c<12.1):
     	AQI=Linear(50,0,12,0,c)
     elif (c>=12.1 and c<35.5):
