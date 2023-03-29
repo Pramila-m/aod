@@ -10,7 +10,7 @@ from pyhdf.SD import SD, SDC
 import numpy as np
 from streamlit_folium import folium_static
 from streamlit_folium import st_folium
-import folium
+import folium,math
 import  io, sys, json,glob
 from urllib.request import urlopen
 from urllib.request import urlopen
@@ -106,6 +106,32 @@ if st.button("Predict"):
          	AOD500nm=round(data_value*scale_factor,3)
     #st.write(AOD500nm)
     st.success("AOD Value {} ".format(round(AOD500nm,3)))
+
+    def Linear(AQIhigh, AQIlow, Conchigh, Conclow, Conc):
+	    a=((Conc-Conclow)/(Conchigh-Conclow))*(AQIhigh-AQIlow)+AQIlow;
+	    linear= round(a);
+	    return linear;
+
+
+    #conc=AOD500nm
+    c=(math.floor(10*AOD500nm))/10
+    if (c>=0 and c<12.1):
+	AQI=Linear(50,0,12,0,c)
+    elif (c>=12.1 and c<35.5):
+	AQI=Linear(100,51,35.4,12.1,c);
+    elif(c>=35.5 and c<55.5):
+	AQI=Linear(150,101,55.4,35.5,c);
+    elif(c>=55.5 and c<150.5):
+	AQI=Linear(200,151,150.4,55.5,c);
+    elif (c>=150.5 and c<250.5):
+	AQI=Linear(300,201,250.4,150.5,c);
+    elif (c>=250.5 and c<350.5):
+	AQI=Linear(400,301,350.4,250.5,c);
+    elif(c>=350.5 and c<500.5):
+	AQI=Linear(500,401,500.4,350.5,c);
+    else:
+	AQI="PM25message";
+    st.success(("Air Quality Index (AQI) Value {} ".format(AQI)))
     phi = user_lat
     longitude = user_lon
     tz = -7
