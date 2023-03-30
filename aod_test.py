@@ -417,3 +417,6 @@ def main():
 			add_userdata(new_user,make_hashes(new_password))
 			st.success("You have successfully created a valid Account")
 			st.info("Go to Login Menu to login")
+	
+if __name__ == "__main__":
+    main()
