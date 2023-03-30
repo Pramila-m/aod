@@ -90,9 +90,9 @@ def view_all_users():
 def home():
 	add_bg_from_local("solar2.jpg")
 
-	opener = urllib.request.build_opener()
-	opener.addheaders = [('Authorization', 'Bearer cHJhbWlsYV9tYW5pY2thdmFzYWthbjpjSEpoYldsc1lTNHhPVEF4TVRNM1FITnlaV011WVdNdWFXND06MTY2MTQ1NDk2NjoxMTNkMjk3NjJjYWVmMjk0ZWRkODEwZTgwMjM2YmJkNzRlM2ExMDhh')]
-	urllib.request.install_opener(opener)
+# 	opener = urllib.request.build_opener()
+# 	opener.addheaders = [('Authorization', 'Bearer cHJhbWlsYV9tYW5pY2thdmFzYWthbjpjSEpoYldsc1lTNHhPVEF4TVRNM1FITnlaV011WVdNdWFXND06MTY2MTQ1NDk2NjoxMTNkMjk3NjJjYWVmMjk0ZWRkODEwZTgwMjM2YmJkNzRlM2ExMDhh')]
+# 	urllib.request.install_opener(opener)
 	
 	st.markdown("<h1 style='text-align: left; font-weight:bold;color:black;background-color:white;font-size:11pt;'> Choose any Location </h1>",unsafe_allow_html=True)
 
