@@ -87,14 +87,12 @@ def view_all_users():
 
 
 add_bg_from_local("solar3.gif")
-menu = ["Home","Login","SignUp"]
-choice = st.selectbox("Menu",menu)
+
 
 with st.expander("Login"):
-	st.subheader("Login Section")
-	username = st.sidebar.text_input("User Name")
-	password = st.sidebar.text_input("Password",type='password')
-	if st.sidebar.checkbox("Login"):
+	username = st.text_input("User Name")
+	password = st.text_input("Password",type='password')
+	if st.button("Login"):
 		# if password == '12345':
 		create_usertable()
 		hashed_pswd = make_hashes(password)
@@ -111,9 +109,8 @@ with st.expander("Login"):
 
 
 with st.expander("SignUp"):
-	st.subheader("Create New Account")
-	new_user = st.text_input("Username")
-	new_password = st.text_input("Password",type='password')
+	new_user = st.text_input("New Username")
+	new_password = st.text_input("New Password",type='password')
 
 	if st.button("Signup"):
 		create_usertable()
