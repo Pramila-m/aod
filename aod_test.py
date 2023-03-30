@@ -56,7 +56,6 @@ def home():
     opener = urllib.request.build_opener()
     opener.addheaders = [('Authorization', 'Bearer cHJhbWlsYV9tYW5pY2thdmFzYWthbjpjSEpoYldsc1lTNHhPVEF4TVRNM1FITnlaV011WVdNdWFXND06MTY2MTQ1NDk2NjoxMTNkMjk3NjJjYWVmMjk0ZWRkODEwZTgwMjM2YmJkNzRlM2ExMDhh')]
     urllib.request.install_opener(opener)
-    st.markdown("<h1 style ='color:green; text_align:center;font-family:times new roman;font-weight: bold;font-size:20pt;'>Impact of Aerosols in Solar Power Generation </h1>", unsafe_allow_html=True) 
 
 
     st.markdown("<h1 style='text-align: left; font-weight:bold;color:black;background-color:white;font-size:11pt;'> Choose any Location </h1>",unsafe_allow_html=True)
@@ -388,7 +387,9 @@ def view_all_users():
 
 def main():
 
-
+	add_bg_from_local("solar.gif")
+	st.markdown("<h1 style ='color:green; text_align:center;font-family:times new roman;font-weight: bold;font-size:20pt;'>Impact of Aerosols in Solar Power Generation </h1>", unsafe_allow_html=True) 
+      
 	menu = ["Login","SignUp"]
 	choice = st.selectbox("Menu",menu)
 
@@ -398,7 +399,7 @@ def main():
 
 		username = st.text_input("User Name")
 		password = st.text_input("Password",type='password')
-		if st.sidebar.checkbox("Login"):
+		if st.checkbox("Login"):
 			# if password == '12345':
 			create_usertable()
 			hashed_pswd = make_hashes(password)
