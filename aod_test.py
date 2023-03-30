@@ -153,7 +153,7 @@ def home():
 
 	    data_value=data[int(user_lat),int(user_lat)]
 	    if (data_value==fillvalue):
-	    	print('The value of AOD at this pixel is',fillvalue,',(No Value)\n')
+		print('The value of AOD at this pixel is',fillvalue,',(No Value)\n')
 	    	AOD500nm=0
 	    else:
 	    	print('The value of AOD at this pixel is ',round(data_value*scale_factor,3))
