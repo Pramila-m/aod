@@ -10,7 +10,7 @@ from pyhdf.SD import SD, SDC
 import numpy as np
 from streamlit_folium import folium_static
 from streamlit_folium import st_folium
-import folium,math
+import folium,math,base64
 import  io, sys, json,glob
 from urllib.request import urlopen
 from urllib.request import urlopen
@@ -35,6 +35,23 @@ import matplotlib.pylab as pylab
 import h5py
 import datetime
 
+def add_bg_from_local(image_file):
+    with open(image_file, "rb") as image_file:
+        encoded_string = base64.b64encode(image_file.read())
+    st.markdown(
+    f"""
+    <style>
+    .stApp {{
+        background-image: url(data:image/{"jpg"};base64,{encoded_string.decode()});
+        background-size: cover
+    }}
+    </style>
+    """,
+    unsafe_allow_html=True
+    )
+
+add_bg_from_local("solar3.gif")
+      
 opener = urllib.request.build_opener()
 opener.addheaders = [('Authorization', 'Bearer cHJhbWlsYV9tYW5pY2thdmFzYWthbjpjSEpoYldsc1lTNHhPVEF4TVRNM1FITnlaV011WVdNdWFXND06MTY2MTQ1NDk2NjoxMTNkMjk3NjJjYWVmMjk0ZWRkODEwZTgwMjM2YmJkNzRlM2ExMDhh')]
 urllib.request.install_opener(opener)
