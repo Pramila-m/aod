@@ -191,11 +191,11 @@ def home():
 
 	    data_value=data[int(user_lat),int(user_lat)]
 	    if (data_value==fillvalue):
-			print('The value of AOD at this pixel is',fillvalue,',(No Value)\n')
-			AOD500nm=0
+	    	print('The value of AOD at this pixel is',fillvalue,',(No Value)\n')
+	    	AOD500nm=0
 	    else:
-			print('The value of AOD at this pixel is ',round(data_value*scale_factor,3))
-			AOD500nm=round(data_value*scale_factor,3)
+	    	print('The value of AOD at this pixel is ',round(data_value*scale_factor,3))
+	    	AOD500nm=round(data_value*scale_factor,3)
 	    #st.write(AOD500nm)
 	    st.success("AOD Value {} ".format(round(AOD500nm,3)))
 		 #PARTICULATE MATTER =>AOD * SLOPE + INTERCEPT
