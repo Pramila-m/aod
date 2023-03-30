@@ -27,6 +27,13 @@ from pyhdf.SD import SD, SDC
 
 #from mpl_toolkits.basemap import Basemap
 
+import numpy as np
+import sys
+import pandas as pd
+import matplotlib.pyplot as plt
+import matplotlib.pylab as pylab
+import h5py
+import datetime
 
 opener = urllib.request.build_opener()
 opener.addheaders = [('Authorization', 'Bearer cHJhbWlsYV9tYW5pY2thdmFzYWthbjpjSEpoYldsc1lTNHhPVEF4TVRNM1FITnlaV011WVdNdWFXND06MTY2MTQ1NDk2NjoxMTNkMjk3NjJjYWVmMjk0ZWRkODEwZTgwMjM2YmJkNzRlM2ExMDhh')]
