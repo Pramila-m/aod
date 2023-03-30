@@ -203,9 +203,9 @@ def home():
 	    st.warning("Particulate matter {} ".format(PM2_5))
 
 	    def Linear(AQIhigh, AQIlow, Conchigh, Conclow, Conc):
-		    a=((Conc-Conclow)/(Conchigh-Conclow))*(AQIhigh-AQIlow)+AQIlow;
-		    linear= round(a);
-		    return linear;
+	    	a=((Conc-Conclow)/(Conchigh-Conclow))*(AQIhigh-AQIlow)+AQIlow;
+	    	linear= round(a);
+	    	return linear;
 
 
 	    #conc=AOD500nm 
