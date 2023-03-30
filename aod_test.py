@@ -393,7 +393,7 @@ def main():
 	choice = st.selectbox("Menu",menu)
 
 
-	elif choice == "Login":
+	if choice == "Login":
 		#st.subheader("Login Section")
 
 		username = st.text_input("User Name")
