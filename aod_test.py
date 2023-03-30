@@ -89,35 +89,6 @@ def view_all_users():
 add_bg_from_local("solar3.gif")
 
 
-with st.expander("Login"):
-	username = st.text_input("User Name")
-	password = st.text_input("Password",type='password')
-	if st.button("Login"):
-		# if password == '12345':
-		create_usertable()
-		hashed_pswd = make_hashes(password)
-
-		result = login_user(username,check_hashes(password,hashed_pswd))
-		if result:
-			st.success("Logged In as {}".format(username))
-			home()
-		else:
-			st.warning("Incorrect Username/Password")
-
-
-
-
-
-with st.expander("SignUp"):
-	new_user = st.text_input("New Username")
-	new_password = st.text_input("New Password",type='password')
-
-	if st.button("Signup"):
-		create_usertable()
-		add_userdata(new_user,make_hashes(new_password))
-		st.success("You have successfully created a valid Account")
-		st.info("Go to Login Menu to login")
-
 
 
 def home():
@@ -421,3 +392,32 @@ def home():
 	    #st.error("The loss percentage is:{} ".format(final_loss_per))
 	    st.balloons()
 
+
+with st.expander("Login"):
+	username = st.text_input("User Name")
+	password = st.text_input("Password",type='password')
+	if st.button("Login"):
+		# if password == '12345':
+		create_usertable()
+		hashed_pswd = make_hashes(password)
+
+		result = login_user(username,check_hashes(password,hashed_pswd))
+		if result:
+			st.success("Logged In as {}".format(username))
+			home()
+		else:
+			st.warning("Incorrect Username/Password")
+
+
+
+
+
+with st.expander("SignUp"):
+	new_user = st.text_input("New Username")
+	new_password = st.text_input("New Password",type='password')
+
+	if st.button("Signup"):
+		create_usertable()
+		add_userdata(new_user,make_hashes(new_password))
+		st.success("You have successfully created a valid Account")
+		st.info("Go to Login Menu to login")
