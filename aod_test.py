@@ -86,10 +86,6 @@ def view_all_users():
 
 
 
-add_bg_from_local("solar3.gif")
-
-
-
 
 def home():
 	add_bg_from_local("solar2.jpg")
@@ -97,9 +93,7 @@ def home():
 	opener = urllib.request.build_opener()
 	opener.addheaders = [('Authorization', 'Bearer cHJhbWlsYV9tYW5pY2thdmFzYWthbjpjSEpoYldsc1lTNHhPVEF4TVRNM1FITnlaV011WVdNdWFXND06MTY2MTQ1NDk2NjoxMTNkMjk3NjJjYWVmMjk0ZWRkODEwZTgwMjM2YmJkNzRlM2ExMDhh')]
 	urllib.request.install_opener(opener)
-	st.markdown("<h1 style ='color:green; text_align:center;font-family:times new roman;font-weight: bold;font-size:20pt;'>Impact of Aerosols in Solar Power Generation </h1>", unsafe_allow_html=True) 
-
-
+	
 	st.markdown("<h1 style='text-align: left; font-weight:bold;color:black;background-color:white;font-size:11pt;'> Choose any Location </h1>",unsafe_allow_html=True)
 
 	m = folium.Map()
@@ -391,33 +385,35 @@ def home():
 	    final_loss_per = (final_loss/total_electricity)*100
 	    #st.error("The loss percentage is:{} ".format(final_loss_per))
 	    st.balloons()
+def main():
+	add_bg_from_local("solar3.gif")
+	st.markdown("<h1 style ='color:green; text_align:center;font-family:times new roman;font-weight: bold;font-size:20pt;'>Impact of Aerosols in Solar Power Generation </h1>", unsafe_allow_html=True) 
+
+	nav = st.radio("",["Login 🏡","SignUp 📌"])
+	if nav == "Login 🏡":
+		username = st.text_input("User Name")
+		password = st.text_input("Password",type='password')
+		if st.button("Login"):
+			# if password == '12345':
+			create_usertable()
+			hashed_pswd = make_hashes(password)
+
+			result = login_user(username,check_hashes(password,hashed_pswd))
+			if result:
+				#st.success("Logged In as {}".format(username))
+				home()
+			else:
+				st.warning("Incorrect Username/Password")
 
 
-with st.expander("Login"):
-	username = st.text_input("User Name")
-	password = st.text_input("Password",type='password')
-	if st.button("Login"):
-		# if password == '12345':
-		create_usertable()
-		hashed_pswd = make_hashes(password)
-
-		result = login_user(username,check_hashes(password,hashed_pswd))
-		if result:
-			st.success("Logged In as {}".format(username))
-			home()
-		else:
-			st.warning("Incorrect Username/Password")
 
 
+	if nav == "SignUp 📌":
+		new_user = st.text_input("New Username")
+		new_password = st.text_input("New Password",type='password')
 
-
-
-with st.expander("SignUp"):
-	new_user = st.text_input("New Username")
-	new_password = st.text_input("New Password",type='password')
-
-	if st.button("Signup"):
-		create_usertable()
-		add_userdata(new_user,make_hashes(new_password))
-		st.success("You have successfully created a valid Account")
-		st.info("Go to Login Menu to login")
+		if st.button("Signup"):
+			create_usertable()
+			add_userdata(new_user,make_hashes(new_password))
+			st.success("You have successfully created a valid Account")
+			st.info("Go to Login Menu to login")
